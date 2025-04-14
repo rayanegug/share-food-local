@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 
@@ -14,6 +15,8 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/sharefoodlo
     useUnifiedTopology: true,
   }).then(() => console.log('MongoDB connected'));
 
+  app.use('/auth', authRoutes);
+  
 app.get('/', (req, res) => {
   res.json({ message: 'ShareFoodLocal API' });
 });
