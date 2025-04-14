@@ -7,7 +7,7 @@ const app = express();
 
 app.use(helmet()); // Sécurise les headers
 app.use(cors()); // Frontend <-> Backend
-app.use(express.json()); // Lit JSON
+app.use(express.json()); // Lit JSONj
 
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/sharefoodlocal', {
     useNewUrlParser: true,
